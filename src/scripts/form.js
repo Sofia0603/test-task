@@ -1,34 +1,41 @@
-const form = document.querySelector('.form')
-const popup = document.getElementById('successPopup')
-const closeBtn = document.querySelector('.popup__close')
-const overlay = document.querySelector('.popup__overlay')
-const phoneInput = document.querySelector('#phone')
+class BookingForm {
+	constructor(formSelector, popupSelector, phoneSelector) {
+		this.form = document.querySelector(formSelector)
+		this.popup = document.querySelector(popupSelector)
+		this.closeBtn = this.popup?.querySelector('.popup__close')
+		this.overlay = this.popup?.querySelector('.popup__overlay')
+		this.phoneInput = document.querySelector(phoneSelector)
 
-function openPopup() {
-	popup.classList.add('active')
-	document.body.classList.add('no-scroll')
-}
+		if (this.phoneInput) {
+			Inputmask({
+				mask: '+7 (999) 999-99-99',
+				showMaskOnHover: false,
+				showMaskOnFocus: true,
+				clearIncomplete: true
+			}).mask(this.phoneInput)
+		}
 
-function closePopup() {
-	popup.classList.remove('active')
-	document.body.classList.remove('no-scroll')
-}
+		this.initEvents()
+	}
 
-if (phoneInput) {
-	Inputmask({
-		mask: '+7 (999) 999-99-99',
-		showMaskOnHover: false,
-		showMaskOnFocus: true,
-		clearIncomplete: true
-	}).mask(phoneInput)
-}
+	initEvents() {
+		if (this.form) {
+			this.form.addEventListener('submit', e => this.handleSubmit(e))
+		}
 
-if (form) {
-	form.addEventListener('submit', function (e) {
+		if (this.closeBtn) {
+			this.closeBtn.addEventListener('click', () => this.closePopup())
+		}
+
+		if (this.overlay) {
+			this.overlay.addEventListener('click', () => this.closePopup())
+		}
+	}
+
+	handleSubmit(e) {
 		e.preventDefault()
-
 		let valid = true
-		const inputs = form.querySelectorAll('.form__input')
+		const inputs = this.form.querySelectorAll('.form__input')
 
 		inputs.forEach(input => {
 			input.classList.remove('error')
@@ -47,7 +54,7 @@ if (form) {
 			}
 
 			if (input.name === 'phone') {
-				if (!phoneInput.inputmask.isComplete()) {
+				if (!this.phoneInput.inputmask.isComplete()) {
 					input.classList.add('error')
 					valid = false
 				}
@@ -57,16 +64,22 @@ if (form) {
 		if (!valid) return
 
 		setTimeout(() => {
-			openPopup()
-			form.reset()
+			this.openPopup()
+			this.form.reset()
 		}, 400)
-	})
+	}
+
+	openPopup() {
+		this.popup.classList.add('active')
+		document.body.classList.add('no-scroll')
+	}
+
+	closePopup() {
+		this.popup.classList.remove('active')
+		document.body.classList.remove('no-scroll')
+	}
 }
 
-if (closeBtn) {
-	closeBtn.addEventListener('click', closePopup)
-}
-
-if (overlay) {
-	overlay.addEventListener('click', closePopup)
-}
+document.addEventListener('DOMContentLoaded', () => {
+	new BookingForm('.form', '#successPopup', '#phone')
+})
