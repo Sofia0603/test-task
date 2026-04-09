@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"
+		/>
+		<link rel="stylesheet" href="/src/styles/style.css">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com"
+		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin
+		/>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+		/>
+		<title>Уютная кухня</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="container header__container">
+				<div class="header__logo">
+					<img src="src/images/logo.svg" alt="">
+				</div>
+				<nav class="header__nav">
+					<ul class="header__list">
+						<li class="header__item">
+							<a href="javascript:void(0)" class="header__link">Меню</a>						</li>
+						<li class="header__item">
+							<a href="#form-section" class="header__link">К бронированию</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+			<section class="hero">
+				<div class="container hero__container">
+					<div class="hero__banner">
+						<picture>
+							<source srcset="src/images/hero-mobile.png" media="(max-width: 400px)">
+							<img src="src/images/hero.jpg" class="hero__banner-image" alt="Баннер">
+						</picture>
+					</div>
+					<h1 class="hero__title">Домашняя кухня в центре города</h1>
+					<h2 class="hero__subtitle">Бронируйте стол онлайн — мы подготовим всё к вашему приходу.</h2>
+					<a href="#form-section" class="hero__link button--orange">Забронировать стол</a>
+				</div>
+			</section>
+			<section class="block">
+				<div class="container">
+						<div class="block-link">
+							Нравится атмосфера? <a href="#" class="block-link--accent">перейти к форме бронирования</a>
+						</div>
+				</div>
+			</section>
+			<section class="gallery">
+				<div class="container gallery__container">
+
+				<button type="button" class="gallery-prev" aria-label="Предыдущий слайд">‹</button>
+
+
+					<div class="swiper gallery-slider">
+
+					 <div class="swiper-wrapper">
+						<div class="swiper-slide" role="group" aria-label="Слайд 1 из 9">
+							<img src="src/images/gallery/c1.png" alt="Фото 1">
+						</div>
+						<div class="swiper-slide" role="group" aria-label="Слайд 2 из 9">
+							<img src="src/images/gallery/c2.png" alt="Фото 2">
+						</div>
+						<div class="swiper-slide" role="group" aria-label="Слайд 3 из 9">
+							<img src="src/images/gallery/c3.png" alt="Фото 3">
+						</div>
+						<div class="swiper-slide" role="group" aria-label="Слайд 4 из 9">
+							<img src="src/images/gallery/c4.png" alt="Фото 4">
+						</div>
+						<div class="swiper-slide" role="group" aria-label="Слайд 5 из 9">
+							<img src="src/images/gallery/c5.png" alt="Фото 5">
+						</div>
+						<div class="swiper-slide" role="group" aria-label="Слайд 6 из 9">
+							<img src="src/images/gallery/c6.png" alt="Фото 6">
+						</div>
+						<div class="swiper-slide" role="group" aria-label="Слайд 7 из 9">
+							<img src="src/images/gallery/c7.png" alt="Фото 7">
+						</div>
+						<div class="swiper-slide" role="group" aria-label="Слайд 8 из 9">
+							<img src="src/images/gallery/c8.png" alt="Фото 8">
+						</div>
+						<div class="swiper-slide" role="group" aria-label="Слайд 9 из 9">
+							<img src="src/images/gallery/c9.png" alt="Фото 9">
+						</div>
+					</div>
+
+					</div>
+
+					<button type="button" class="gallery-next" aria-label="Следующий слайд">›</button>
+				</div>
+
+				<div class="gallery-pagination"></div>
+
+			</section>
+			<section class="faq">
+				<div class="container faq__container">
+
+					<h2 class="section__title">Частые вопросы</h2>
+
+					<ul class="faq__list">
+
+						<li class="faq__item">
+							<details>
+								<summary>Часы работы</summary>
+								<p>
+									Пн–Чт 10:00–22:00 · Пт–Сб 10:00–23:00 · Вс 11:00–21:00
+								</p>
+							</details>
+						</li>
+
+						<li class="faq__item">
+							<details>
+								<summary>Как добраться</summary>
+								<p>
+									м. Тверская, 5 минут пешком. Вход со двора, домофон 42.								
+								</p>
+							</details>
+						</li>
+
+						<li class="faq__item">
+							<details>
+								<summary>Детям и особые пожелания</summary>
+								<p>
+									Детское меню и стульчики. Сообщите об аллергиях в форме бронирования.
+								</p>
+							</details>
+						</li>
+
+					</ul>
+
+				</div>
+			</section>
+			<section class="form-section" id="form-section">
+				<div class="container">
+					<div class="form-section__inner">
+						<h2 class="section__title">Бронирование стола</h2>
+						<p class="form-section__subtitle">Заполните поля — перезвоним для подтверждения.</p>
+						<form action="#" class="form">
+							<label class="form__block">
+								<span class="form__label">Имя</span>
+								<input class="form__input" type="text" name="name" id="name" required>
+							</label>
+							<label class="form__block">
+								<span class="form__label">Фамилия</span>
+								<input class="form__input" type="text" name="surname" id="surname" required>
+							</label>
+							<label class="form__block">
+								<span class="form__label">Email</span>
+								<input class="form__input" type="email" name="email" id="email" required>
+							</label>
+							<label class="form__block">
+								<span class="form__label">Телефон</span>
+								<input class="form__input" type="tel" name="phone" id="phone" required>
+							</label>
+							<button type="submit" class="form__button button--green" aria-label="Отправить заявку на бронирование стола">Отправить</button>
+						</form>
+					</div>
+				</div>
+			</section>
+
+			<div class="popup" id="successPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+				  <div class="popup__overlay"></div>
+				<div class="popup__content">
+					<h3 id="popupTitle" class="popup__title">Заявка отправлена</h3>
+					<p class="popup__text">Спасибо! Мы свяжемся с Вами  в ближайшее время для подтверждения брони.</p>
+					<button type="button" class="popup__close button--light" aria-label="Закрыть модальное окно">Закрыть</button>
+				</div>
+			</div>
+		</main>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.8/dist/inputmask.min.js"></script>
+		<script src="src/scripts/slider.js"></script>
+		<script src="src/scripts/form.js"></script>
+	</body>
+</html>
